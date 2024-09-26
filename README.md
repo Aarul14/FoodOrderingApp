@@ -33,7 +33,7 @@ Open your browser and navigate to `http://localhost:3000`.
 - Log in using your credentials to access the app.
 
 ### Browse Menu:
-- View available food items from different restaurants.
+- View available food items from the restaurant.
 - Use the search bar to find specific dishes.
 
 ### Filtering:
