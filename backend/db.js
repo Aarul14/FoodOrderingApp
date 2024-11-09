@@ -1,40 +1,23 @@
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb+srv://Aarul1:Aarul1@cluster0.l8zuhzc.mongodb.net/foodfleetmern'
-// const mongoDB = async () => {
+require('dotenv').config();
 
-//     await mongoose.connect(mongoURI,
-
-//     ).then(() => console.log('Connected Sucessfully')
-
-//     )
-//         .catch((err) => { console.log(err); });
-
-// }
-
+const mongoURI = process.env.MONGO_URI;  
 const mongoDB = async () => {
+    try {
+        await mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+        console.log("DB connected");
 
-    await mongoose.connect(mongoURI, { useNewUrlParser: true }, async (err, result) => {
+        const foodData = await mongoose.connection.db.collection("fooditems").find({}).toArray();
+        const foodCategoryData = await mongoose.connection.db.collection("foodcategory").find({}).toArray();
+        //DEBUGGING
+        // console.log("Fetched Food Items:", foodData);
+        // console.log("Fetched Food Categories:", foodCategoryData);
+        global.food_item = foodData;
+        global.foodCategory = foodCategoryData;
 
-        if (err) console.log("---", err)
-        else {
-
-            console.log("connected");
-            const fetched_data = await mongoose.connection.db.collection("fooditems");
-            fetched_data.find({}).toArray(async function (err, data) {
-                const foodCategory = await mongoose.connection.db.collection("foodcategory");
-                foodCategory.find({}).toArray(function (err, catData) {
-                    if (err) console.log(err);
-                    else {
-                        global.food_item = data;
-                        global.foodCategory = catData;
-                    }
-                })
-
-            })
-        }
-    });
-
-
-}
+    } catch (error) {
+        console.log("Error:", error);
+    }
+};
 
 module.exports = mongoDB;
