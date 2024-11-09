@@ -20,7 +20,7 @@ app.use('/api/', require("./Routes/CreateUser"))
 app.use('/api/', require("./Routes/DisplayData"))
 app.use('/api/', require("./Routes/OrderData"))
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Server is running...')
 })
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

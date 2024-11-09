@@ -3,13 +3,14 @@ import { Card } from "../components/Card";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 
+
 export const Home = () => {
   const [foodCat, setFoodCat] = useState([]);
   const [foodItem, setFoodItem] = useState([]);
   const [search, setSearch] = useState("");
 
   const loadData = async () => {
-    let response = await fetch("http://localhost:3001/api/foodData", {
+    let response = await fetch(`${process.env.REACT_APP_API_URL}/api/foodData`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     });

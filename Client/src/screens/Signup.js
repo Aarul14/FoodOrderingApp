@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
+
 export const Signup = () => {
   let navigate = useNavigate();
   const [credentials, setCredentials] = useState({
@@ -12,7 +13,7 @@ export const Signup = () => {
   });
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3001/api/createuser", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/createuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import { useNavigate, Link } from "react-router-dom";
+
+
 export const Login = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
@@ -13,7 +15,7 @@ export const Login = () => {
         password: credentials.password,
       })
     );
-    const response = await fetch("http://localhost:3001/api/loginuser", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/loginuser`, {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",
