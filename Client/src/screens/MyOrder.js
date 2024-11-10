@@ -7,7 +7,7 @@ export const MyOrder = () => {
 
   const fetchMyOrder = async () => {
     console.log(localStorage.getItem("userEmail"));
-    await fetch(`https://yumhub-backend-tv44.onrender.com/api/myOrderData`, {
+    await fetch(`https://yumhub-backend.vercel.app/api/myOrderData`, {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",

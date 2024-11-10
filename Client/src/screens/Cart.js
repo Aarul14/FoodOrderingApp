@@ -17,7 +17,7 @@ export default function Cart() {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
     let response = await fetch(
-      `https://yumhub-backend-tv44.onrender.com/api/orderData`,
+      `https://yumhub-backend.vercel.app/api/orderData`,
       {
         // credentials: 'include',
         // Origin:"http://localhost:3000/login",

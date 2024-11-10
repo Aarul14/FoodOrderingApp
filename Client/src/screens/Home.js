@@ -3,18 +3,20 @@ import { Card } from "../components/Card";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 
-
 export const Home = () => {
   const [foodCat, setFoodCat] = useState([]);
   const [foodItem, setFoodItem] = useState([]);
   const [search, setSearch] = useState("");
-  console.log("API URL:", process.env.REACT_APP_API_URL);  // Debugging: print the API URL to check if it's correct
+  console.log("API URL:", process.env.REACT_APP_API_URL); // Debugging: print the API URL to check if it's correct
 
   const loadData = async () => {
-    let response = await fetch('https://yumhub-backend-tv44.onrender.com/api/foodData', {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    });
+    let response = await fetch(
+      "https://yumhub-backend.vercel.app/api/foodData",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
     response = await response.json();
     setFoodItem(response[0]);
     setFoodCat(response[1]);

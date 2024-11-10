@@ -15,7 +15,7 @@ export const Login = () => {
       })
     );
     const response = await fetch(
-      `https://yumhub-backend-tv44.onrender.com/api/loginuser`,
+      `https://yumhub-backend.vercel.app/api/loginuser`,
       {
         method: "POST",
         headers: {

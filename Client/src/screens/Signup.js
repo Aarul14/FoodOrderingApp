@@ -13,7 +13,7 @@ export const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      `https://yumhub-backend-tv44.onrender.com/api/createuser`,
+      `https://yumhub-backend.vercel.app/api/createuser`,
       {
         method: "POST",
         headers: {
