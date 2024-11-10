@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import { useNavigate, Link } from "react-router-dom";
 
 export const Login = () => {
-  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [credentials, setCredentials] = useState({ email: "aarulmishra145@gmail.com", password: "Aarul" });
   let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
