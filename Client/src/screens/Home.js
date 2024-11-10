@@ -8,6 +8,7 @@ export const Home = () => {
   const [foodCat, setFoodCat] = useState([]);
   const [foodItem, setFoodItem] = useState([]);
   const [search, setSearch] = useState("");
+  console.log("API URL:", process.env.REACT_APP_API_URL);  // Debugging: print the API URL to check if it's correct
 
   const loadData = async () => {
     let response = await fetch(`${process.env.REACT_APP_API_URL}/api/foodData`, {
