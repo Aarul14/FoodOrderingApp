@@ -8,8 +8,6 @@ export const MyOrder = () => {
   const fetchMyOrder = async () => {
     console.log(localStorage.getItem("userEmail"));
     await fetch(`https://yumhub-backend.vercel.app/api/myOrderData`, {
-      // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,10 +19,6 @@ export const MyOrder = () => {
       let response = await res.json();
       await setorderData(response);
     });
-
-    // await res.map((data)=>{
-    //    console.log(data)
-    // })
   };
 
   useEffect(() => {

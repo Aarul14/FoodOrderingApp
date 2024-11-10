@@ -6,9 +6,9 @@ router.post('/foodData', (req, res) => {
     try {
         if (global.food_item && global.foodCategory) {
             res.send([global.food_item, global.foodCategory]);
-            console.log("->",global.food_item)
+            console.log("->", global.food_item);
         } else {
-            res.status(500).send("Data not yet available or server error.");
+            res.status(503).send("Service unavailable. Data is loading, please try again later.");
         }
     } catch (error) {
         console.log(error.message);
