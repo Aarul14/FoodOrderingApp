@@ -7,7 +7,7 @@ export const MyOrder = () => {
 
   const fetchMyOrder = async () => {
     console.log(localStorage.getItem("userEmail"));
-    await fetch(`${process.env.REACT_APP_API_URL}/api/myOrderData`, {
+    await fetch(`https://yumhub-backend-tv44.onrender.com/api/myOrderData`, {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",

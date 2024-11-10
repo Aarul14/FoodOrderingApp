@@ -2,7 +2,6 @@ import React from "react";
 // import Delete from '@mui/icons/Delete'
 import { useCart, useDispatchCart } from "../components/ContextReducer";
 
-
 export default function Cart() {
   let data = useCart();
   let dispatch = useDispatchCart();
@@ -17,19 +16,22 @@ export default function Cart() {
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
     // console.log(data,localStorage.getItem("userEmail"),new Date())
-    let response = await fetch(`${process.env.REACT_APP_API_URL}/api/orderData`, {
-      // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        order_data: data,
-        email: userEmail,
-        order_date: new Date().toDateString(),
-      }),
-    });
+    let response = await fetch(
+      `https://yumhub-backend-tv44.onrender.com/api/orderData`,
+      {
+        // credentials: 'include',
+        // Origin:"http://localhost:3000/login",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          order_data: data,
+          email: userEmail,
+          order_date: new Date().toDateString(),
+        }),
+      }
+    );
     console.log("JSON RESPONSE:::::", response);
     if (response.status === 200) {
       dispatch({ type: "DROP" });
