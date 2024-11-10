@@ -6,11 +6,14 @@ const port = process.env.PORT;
 
 const mongoDB = require("./db")
 mongoDB();
-app.use(cors({
-    origin: ["http://localhost:3000", "https://yumhub-wine.vercel.app"],  // Add Vercel domain here
-    methods: ["GET", "POST", "PUT", "DELETE"],  // List allowed methods
-    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"]
-}));
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+});
 
 
 app.use(express.json())
