@@ -2,14 +2,18 @@ const express = require('express');
 const router = express.Router();
 const mongoDB = require('../db'); 
 mongoDB();
-router.post('/foodData', async (req, res) => {
+router.post('/foodData', (req, res) => {
     try {
-        res.send([global.foodData, global.foodCategory])
+        if (global.food_item && global.foodCategory) {
+            res.send([global.food_item, global.foodCategory]);
+            console.log("->",global.food_item)
+        } else {
+            res.status(503).send("Data not yet available or server error.");
+        }
     } catch (error) {
-        console.error(error.message)
-        res.send("Server Error")
-
+        console.log(error.message);
+        res.status(500).send("Server error");
     }
-})
+});
 
 module.exports = router;

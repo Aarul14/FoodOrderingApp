@@ -5,7 +5,6 @@ import { useNavigate, Link } from "react-router-dom";
 export const Login = () => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(
