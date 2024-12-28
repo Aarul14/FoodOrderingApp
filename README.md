@@ -1,6 +1,6 @@
-# GoGrub
+# YumHub
 
-GoGrub is a web application that allows users to browse, order, and manage food items from various restaurants seamlessly.
+YumHub is a web application that allows users to browse, order, and manage food items from various restaurants seamlessly.
 
 ## Installation
 
